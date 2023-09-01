@@ -16,14 +16,14 @@ services:
     image: alexsimonscreate/kittygram_backend
     env_file: .env
     volumes:
-    - static:/static/
+    - static:/backend_static/
     - media:/app/media/
   frontend:
     env_file: .env
-    image: alexsimonscreate/kittygram_backend
+    image: alexsimonscreate/kittygram_frontend
     command: cp -r /app/build/. /static/
     volumes:
-      - static:/static
+      - static:/backend_static/
   gateway:
     image: alexsimonscreate/kittygram_gateway
     env_file: .env

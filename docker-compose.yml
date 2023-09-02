@@ -21,9 +21,9 @@ services:
   frontend:
     env_file: .env
     image: alexsimonscreate/kittygram_frontend
-    command: cp -r /app/build/. /static/
+    command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static:/static/
+      - static:/frontend_static
   gateway:
     image: alexsimonscreate/kittygram_gateway
     env_file: .env
@@ -31,4 +31,4 @@ services:
       - 9000:80
     volumes:
       - static:/staticfiles/
-      - media:/static
+      - media:/app/media
